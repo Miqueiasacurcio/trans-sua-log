@@ -73,8 +73,10 @@
       .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
       .brand-logo { display: block; width: 178px; height: 82px; flex-shrink: 0; object-fit: contain; }
       .main-nav { display: flex; align-items: center; gap: 32px; color: #435568; font-size: .88rem; font-weight: 600; }
-      .main-nav a:not(.button) { transition: color .2s ease; }
+      .main-nav a:not(.button) { position: relative; padding-block: 8px; transition: color .2s ease; }
+      .main-nav a:not(.button)::after { position: absolute; right: 0; bottom: 1px; left: 0; height: 2px; transform: scaleX(0); transform-origin: left; background: var(--orange); content: ""; transition: transform .2s ease; }
       .main-nav a:not(.button):hover, .main-nav a[aria-current="page"] { color: var(--orange); }
+      .main-nav a:not(.button)[aria-current="page"]::after { transform: scaleX(1); }
       .button {
         display: inline-flex;
         min-height: 48px;
@@ -137,6 +139,9 @@
       .image-badge strong { display: block; font-family: Manrope, Arial, sans-serif; font-size: 1.1rem; line-height: 1.2; }
       .image-badge span { display: block; margin-top: 7px; font-size: .76rem; }
       .about-text .section-copy + .section-copy { margin-top: 14px; }
+      .mission-block { margin-top: 24px; padding: 20px 24px; border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; background: var(--pale); }
+      .mission-block h3 { margin: 0 0 6px; color: var(--navy); font-family: Manrope, Arial, sans-serif; font-size: 1rem; }
+      .mission-block p { margin: 0; color: var(--muted); font-size: .92rem; }
       .check-list { display: grid; gap: 12px; margin: 28px 0 32px; padding: 0; list-style: none; }
       .check-list li { display: flex; align-items: center; gap: 11px; color: #32485b; font-size: .92rem; font-weight: 600; }
       .check-list li::before { display: grid; width: 20px; height: 20px; flex: 0 0 20px; place-items: center; border-radius: 50%; background: #fff0da; color: #bc6e0b; content: "✓"; font-size: .73rem; font-weight: 800; }
@@ -153,6 +158,36 @@
       .service-card h3 { margin: 22px 0 8px; color: var(--navy); font-family: Manrope, Arial, sans-serif; font-size: 1.15rem; }
       .service-card p { margin: 0; color: var(--muted); font-size: .9rem; }
 
+      .coverage { position: relative; overflow: hidden; padding-block: 96px 102px; background: var(--navy-deep); color: var(--white); }
+      .coverage::before { position: absolute; top: -245px; left: -175px; width: 520px; height: 520px; border: 1px solid #ffffff0f; border-radius: 50%; box-shadow: 0 0 0 48px #ffffff08, 0 0 0 96px #ffffff05; content: ""; pointer-events: none; }
+      .coverage-inner { position: relative; z-index: 1; }
+      .coverage .eyebrow { color: #fff; }
+      .coverage-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 36px; }
+      .coverage-heading .section-title { max-width: 670px; margin-bottom: 0; color: var(--white); }
+      .coverage-heading .section-copy { max-width: 420px; padding-bottom: 5px; color: #cfdae3; font-size: .96rem; }
+      .coverage-regions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+      .coverage-region { display: inline-flex; min-height: 36px; align-items: center; gap: 8px; padding: 0 14px; border: 1px solid #ffffff38; border-radius: 99px; background: #ffffff0a; color: #f5f7f9; font-size: .78rem; font-weight: 700; }
+      .coverage-region::before { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); content: ""; }
+      .base-heading { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; color: #d6e0e8; font-family: Manrope, Arial, sans-serif; font-size: .92rem; font-weight: 700; }
+      .base-heading::before { width: 22px; height: 2px; background: var(--orange); content: ""; }
+      .base-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+      .base-card { display: flex; min-height: 62px; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid #ffffff1a; border-radius: 8px; background: #ffffff08; color: #f8fafb; font-size: .88rem; font-weight: 600; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+      .base-card:hover { transform: translateY(-2px); border-color: #f59a2380; background: #ffffff12; }
+      .base-pin { display: grid; width: 30px; height: 30px; flex: 0 0 30px; place-items: center; border-radius: 50%; background: #f59a231c; color: var(--orange); }
+      .base-pin svg { width: 16px; height: 16px; }
+
+      .movement { position: relative; overflow: hidden; padding-block: 82px; background: var(--orange); color: var(--navy-deep); }
+      .movement::after { position: absolute; top: -170px; right: -100px; width: 410px; height: 410px; border: 1px solid #092b4d18; border-radius: 50%; box-shadow: 0 0 0 46px #092b4d0b, 0 0 0 92px #092b4d08; content: ""; pointer-events: none; }
+      .movement-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 42px; }
+      .movement-copy { max-width: 730px; }
+      .movement .eyebrow { color: #6b3b04; }
+      .movement .section-title { margin: 12px 0 14px; font-size: clamp(2.2rem, 4vw, 3.6rem); }
+      .movement-copy p { margin: 0; color: #503712; font-size: 1rem; }
+      .movement-copy p + p { margin-top: 12px; }
+      .movement-action { flex: 0 0 auto; }
+      .movement .button { min-height: 52px; background: var(--navy); color: var(--white); }
+      .movement .button:hover { background: var(--navy-deep); }
+
       .clients { padding-block: 94px 100px; background: var(--white); }
       .clients-heading { max-width: 700px; margin: 0 auto 42px; text-align: center; }
       .clients-heading .eyebrow { justify-content: center; }
@@ -162,6 +197,16 @@
       .client-logo { display: grid; min-height: 132px; place-items: center; padding: 20px; border: 1px solid #e8edf1; border-radius: 12px; background: #fff; box-shadow: 0 8px 24px #092b4d08; transition: transform .2s ease, box-shadow .2s ease; }
       .client-logo:hover { transform: translateY(-4px); box-shadow: 0 14px 30px #092b4d14; }
       .client-logo img { width: 100%; height: 78px; object-fit: contain; }
+
+      .careers { position: relative; overflow: hidden; padding-block: 82px; background: var(--navy); color: var(--white); }
+      .careers::after { position: absolute; top: -150px; right: -80px; width: 420px; height: 420px; border: 1px solid #ffffff16; border-radius: 50%; box-shadow: 0 0 0 45px #ffffff08, 0 0 0 90px #ffffff05; content: ""; pointer-events: none; }
+      .careers-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+      .careers-copy { max-width: 700px; }
+      .careers .eyebrow { color: #fff; }
+      .careers .section-title { margin: 12px 0; color: var(--white); font-size: clamp(2rem, 3.8vw, 3rem); }
+      .careers-copy p { max-width: 640px; margin: 0; color: #d3dee7; font-size: 1rem; }
+      .careers-action { flex: 0 0 auto; }
+      .careers-action .button { min-height: 54px; }
 
       .tracking { padding-block: 74px; background: var(--orange); }
       .tracking-inner { display: flex; align-items: center; justify-content: space-between; gap: 36px; }
@@ -179,7 +224,7 @@
       .contact-row strong { display: block; color: var(--navy); font-size: .9rem; }
       .contact-row span, .contact-row a { display: block; color: var(--muted); font-size: .86rem; }
       .contact-row .contact-person { color: var(--navy); font-family: Manrope, Arial, sans-serif; font-size: .98rem; font-weight: 700; }
-      .branch-card { position: relative; display: flex; min-height: 390px; align-items: end; overflow: hidden; border-radius: 8px; background-color: #dfe9e8; background-image: linear-gradient(155deg, transparent 46%, #fff 47%, #fff 50%, transparent 51%), linear-gradient(28deg, transparent 38%, #fff 39%, #fff 42%, transparent 43%), linear-gradient(90deg, transparent 65%, #ffffffa8 66%, #ffffffa8 70%, transparent 71%), linear-gradient(0deg, #061f39e8, #061f3915 72%), repeating-linear-gradient(0deg, transparent 0 46px, #c8d6d5 47px 49px, transparent 50px 92px), repeating-linear-gradient(90deg, transparent 0 58px, #c8d6d5 59px 61px, transparent 62px 116px); }
+      .branch-card { position: relative; display: flex; min-height: 0; aspect-ratio: 539 / 684; align-items: end; overflow: hidden; border-radius: 8px; background-color: #dfe9e8; background-image: linear-gradient(0deg, #061f39ed 0%, #061f3990 18%, transparent 43%), url("assets/contato-trans-sua-log.png"); background-position: center; background-size: cover; background-repeat: no-repeat; }
       .branch-card::before { position: absolute; top: 26px; right: 26px; display: grid; width: 66px; height: 66px; place-items: center; border: 1px solid #ffffffa6; border-radius: 50%; background: #092b4dd9; color: var(--orange); content: "ES"; font-family: Manrope, Arial, sans-serif; font-size: 1.4rem; font-weight: 800; }
       .branch-card-content { position: relative; padding: 30px; color: var(--white); }
       .branch-card-content h3 { margin: 0 0 6px; font-family: Manrope, Arial, sans-serif; font-size: 1.2rem; }
@@ -213,6 +258,7 @@
         .nav-shell { gap: 20px; }
         .about-grid, .contact-grid { gap: 54px; }
         .service-card { padding: 25px; }
+        .base-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       }
       @media (max-width: 720px) {
         .container { width: min(var(--container), calc(100% - 36px)); }
@@ -235,7 +281,9 @@
           box-shadow: 0 18px 24px #092b4d12;
         }
         .main-nav.is-open { display: flex; flex-direction: column; }
-        .main-nav a:not(.button) { padding: 13px 4px; }
+        .main-nav a:not(.button) { padding: 13px 12px; }
+        .main-nav a:not(.button)::after { top: 10px; bottom: 10px; left: 0; width: 3px; height: auto; transform: scaleY(0); transform-origin: top; }
+        .main-nav a:not(.button)[aria-current="page"]::after { transform: scaleY(1); }
         .main-nav .button { margin-top: 8px; }
         .hero { min-height: 575px; background-position: 58% center; }
         .hero::before { background: linear-gradient(90deg, #061f39f2 0%, #061f39dc 60%, #061f3980 100%); }
@@ -254,13 +302,24 @@
         .section-heading .section-copy { margin-top: 16px; }
         .service-grid { grid-template-columns: 1fr; gap: 14px; }
         .service-card { min-height: 0; padding: 24px; }
+        .coverage { padding-block: 72px; }
+        .coverage-heading { display: block; margin-bottom: 28px; }
+        .coverage-heading .section-copy { margin-top: 16px; }
+        .base-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+        .base-card { min-height: 58px; padding: 10px 12px; font-size: .82rem; }
+        .movement { padding-block: 64px; }
+        .movement-inner { align-items: flex-start; flex-direction: column; gap: 24px; }
+        .movement-action, .movement-action .button { width: 100%; }
         .clients { padding-block: 72px; }
         .client-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
         .client-logo { min-height: 112px; padding: 15px; }
         .client-logo img { height: 66px; }
+        .careers { padding-block: 64px; }
+        .careers-inner { align-items: flex-start; flex-direction: column; gap: 24px; }
+        .careers-action { width: 100%; }
+        .careers-action .button { width: 100%; }
         .tracking { padding-block: 54px; }
         .tracking-inner { align-items: flex-start; flex-direction: column; gap: 24px; }
-        .branch-card { min-height: 320px; }
         .footer-main { flex-direction: column; gap: 22px; }
         .footer-links { padding-top: 0; }
       }
@@ -298,9 +357,11 @@
         </button>
         <nav class="main-nav" id="menu-principal" aria-label="Menu principal">
           <a href="#inicio" aria-current="page">Início</a>
-          <a href="#empresa">A empresa</a>
+          <a href="#empresa">Quem somos</a>
           <a href="#servicos">Serviços</a>
+          <a href="#atuacao">Atuação</a>
           <a href="#clientes">Clientes</a>
+          <a href="#trabalhe-conosco">Trabalhe conosco</a>
           <a href="#contato">Contato</a>
           <a class="button button-whatsapp" href="https://wa.me/5527999393313?text=Ol%C3%A1%2C%20Alexandre!%20Sou%20cliente%20e%20gostaria%20de%20falar%20com%20a%20Trans%20Sua%20Log%2C%20filial%20Esp%C3%ADrito%20Santo." target="_blank" rel="noopener noreferrer">
             WhatsApp
@@ -350,10 +411,14 @@
             <div class="image-badge"><strong>Logística feita por pessoas.</strong><span>Parceria e responsabilidade em cada etapa.</span></div>
           </div>
           <div class="about-text">
-            <span class="eyebrow">Filial Espírito Santo</span>
-            <h2 class="section-title" id="about-title">A gente leva a sua confiança junto.</h2>
-            <p class="section-copy">A Trans Sua Log trabalha para que cada transporte seja uma boa experiência para quem envia e para quem recebe.</p>
-            <p class="section-copy">Nossa missão é transportar sua carga com qualidade, rapidez e segurança, buscando sempre a satisfação dos clientes e a melhoria contínua dos nossos serviços.</p>
+            <span class="eyebrow">Quem somos</span>
+            <h2 class="section-title" id="about-title">Soluções logísticas que conectam o Brasil.</h2>
+            <p class="section-copy">Fundada em 2021, a Trans Sua Log oferece soluções de transporte e logística para operações em todo o território nacional.</p>
+            <p class="section-copy">Nossa estrutura combina bases operacionais próprias, parceiros, gestão de risco e acompanhamento próximo de cada entrega.</p>
+            <div class="mission-block">
+              <h3>Nossa missão</h3>
+              <p>Transportar cargas com qualidade, rapidez e segurança, buscando a satisfação dos clientes e a melhoria contínua.</p>
+            </div>
             <ul class="check-list">
               <li>Relacionamento próximo com cada cliente</li>
               <li>Compromisso com a qualidade do serviço</li>
@@ -393,6 +458,51 @@
         </div>
       </section>
 
+      <section class="coverage" id="atuacao" aria-labelledby="coverage-title">
+        <div class="container coverage-inner">
+          <div class="coverage-heading">
+            <div>
+              <span class="eyebrow">Presença estratégica</span>
+              <h2 class="section-title" id="coverage-title">Atuamos em toda a Região Sudeste e Sul.</h2>
+            </div>
+            <p class="section-copy">Possuímos bases próprias e parceiros nas regiões atendidas, com unidades localizadas em pontos estratégicos para acompanhar cada operação de perto.</p>
+          </div>
+          <div class="coverage-regions" aria-label="Regiões atendidas">
+            <span class="coverage-region">Sudeste</span>
+            <span class="coverage-region">Sul</span>
+          </div>
+          <h3 class="base-heading">Bases operacionais</h3>
+          <div class="base-grid" aria-label="Localização das bases operacionais">
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Sorocaba · SP</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Piracicaba · SP</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Bauru · SP</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Votuporanga · SP</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Marília · SP</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Grajaú · Zona Sul de SP</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Presidente Prudente · SP</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Campinas · SP</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Arapongas · PR</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Bento Gonçalves · RS</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Ubá · MG</div>
+            <div class="base-card"><span class="base-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Cariacica · ES</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="movement" aria-labelledby="movement-title">
+        <div class="container movement-inner">
+          <div class="movement-copy">
+            <span class="eyebrow">Uma história em cada quilômetro</span>
+            <h2 class="section-title" id="movement-title">Estamos em movimento.</h2>
+            <p>São milhares de entregas concretizadas, desafios, aprendizados, vitórias e histórias. Ao olhar para trás, percebemos a importância de cada quilômetro percorrido; ao olhar para frente, avistamos o progresso constante.</p>
+            <p>Venha fazer parte dessa história. Venha para a Trans Sua Log.</p>
+          </div>
+          <div class="movement-action">
+            <a class="button" href="#trabalhe-conosco">Faça parte dessa história <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
       <section class="clients" id="clientes" aria-labelledby="clients-title">
         <div class="container">
           <div class="clients-heading">
@@ -407,6 +517,22 @@
             <div class="client-logo"><img src="assets/cliente-sul-via-express.png" alt="Sul Via Express" loading="lazy"></div>
             <div class="client-logo"><img src="assets/cliente-decoracoes-moveis.jpg" alt="Decorações Móveis" loading="lazy"></div>
             <div class="client-logo"><img src="assets/cliente-moderna-mobilia.png" alt="Moderna Mobília" loading="lazy"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="careers" id="trabalhe-conosco" aria-labelledby="careers-title">
+        <div class="container careers-inner">
+          <div class="careers-copy">
+            <span class="eyebrow">Junte-se à nossa operação</span>
+            <h2 class="section-title" id="careers-title">Tem caminhão para agregar?</h2>
+            <p>Estamos abertos a conversar com motoristas e transportadores interessados em agregar caminhões à operação da Trans Sua Log. Fale com Alexandre para apresentar seu veículo e saber mais.</p>
+          </div>
+          <div class="careers-action">
+            <a class="button button-whatsapp" href="https://wa.me/5527999393313?text=Ol%C3%A1%2C%20Alexandre!%20Tenho%20interesse%20em%20agregar%20meu%20caminh%C3%A3o%20%C3%A0%20opera%C3%A7%C3%A3o%20da%20Trans%20Sua%20Log.%20Gostaria%20de%20apresentar%20meu%20ve%C3%ADculo%20e%20saber%20mais." target="_blank" rel="noopener noreferrer" aria-label="Fale com Alexandre sobre agregar caminhões no número 27 99939-3313">
+              Tenho interesse — falar com Alexandre
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </section>
@@ -474,9 +600,11 @@
           </div>
           <nav class="footer-links" aria-label="Links do rodapé">
             <a href="#inicio">Início</a>
-            <a href="#empresa">A empresa</a>
+            <a href="#empresa">Quem somos</a>
             <a href="#servicos">Serviços</a>
+            <a href="#atuacao">Atuação</a>
             <a href="#clientes">Clientes</a>
+            <a href="#trabalhe-conosco">Trabalhe conosco</a>
             <a href="#contato">Contato</a>
             <a href="https://ssw.inf.br/2/rastreamento" target="_blank" rel="noopener noreferrer">Rastreamento ↗</a>
           </nav>
@@ -496,6 +624,61 @@
     <script>
       const menuButton = document.querySelector(".menu-toggle");
       const mainNav = document.querySelector("#menu-principal");
+      const navLinks = [...mainNav.querySelectorAll('a[href^="#"]')];
+      const navSections = navLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+      let scrollUpdateScheduled = false;
+
+      const setActiveSection = (section) => {
+        navLinks.forEach((link) => {
+          if (link.hash === `#${section.id}`) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      };
+
+      const updateActiveSection = () => {
+        scrollUpdateScheduled = false;
+
+        if (!navSections.length) return;
+
+        let activeSection = navSections[0];
+        const marker = document.querySelector(".site-header").getBoundingClientRect().bottom
+          + Math.min(window.innerHeight * 0.2, 140);
+
+        navSections.forEach((section) => {
+          if (section.getBoundingClientRect().top <= marker) {
+            activeSection = section;
+          }
+        });
+
+        if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+          activeSection = navSections[navSections.length - 1];
+        }
+
+        setActiveSection(activeSection);
+      };
+
+      const scheduleActiveSectionUpdate = () => {
+        if (!scrollUpdateScheduled) {
+          scrollUpdateScheduled = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const section = document.querySelector(link.getAttribute("href"));
+          if (section) setActiveSection(section);
+        });
+      });
+
+      window.addEventListener("scroll", scheduleActiveSectionUpdate, { passive: true });
+      window.addEventListener("resize", scheduleActiveSectionUpdate);
+      window.addEventListener("hashchange", scheduleActiveSectionUpdate);
 
       menuButton.addEventListener("click", () => {
         const isOpen = menuButton.getAttribute("aria-expanded") === "true";
@@ -513,6 +696,7 @@
       });
 
       document.querySelector("#ano").textContent = new Date().getFullYear();
+      updateActiveSection();
     </script>
   </body>
 </html>
